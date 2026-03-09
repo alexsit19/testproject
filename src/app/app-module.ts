@@ -6,7 +6,6 @@ import { Mycomponent } from './mycomponent/mycomponent';
 import { Secondcomponent } from './secondcomponent/secondcomponent';
 import { FormsModule } from '@angular/forms';
 import { UserForm } from './user-form/user-form';
-import { UserService } from './user-service';
 
 import { 
   provideHttpClient,
@@ -32,10 +31,9 @@ import {
     provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
     provideClientHydration(withEventReplay()),
-     provideHttpClient(
-      withFetch()       // ← включаем Fetch API поддержку
-    ),
-    UserService
+    provideHttpClient(
+      withFetch()
+    )
 
   ],
   bootstrap: [App]

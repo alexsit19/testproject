@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { User } from '../user';
 import { UserService } from '../user-service';
 
@@ -12,13 +11,23 @@ import { UserService } from '../user-service';
 export class Secondcomponent implements OnInit {
 
   users?: User[];
+  loading = false;
+  error?: string;
 
-  constructor(private http: HttpClient, private userService: UserService) {}
+  constructor(private userService: UserService) {}
 
   ngOnInit() {
- 
-      this.userService.findAll().subscribe(data => {
+    this.loading = true;
+    this.userService.findAll().subscribe({
+      next: data => {
         this.users = data;
-  });
+        this.loading = false;
+      },
+      error: err => {
+        console.error('Failed to load users', err);
+        this.error = 'Не удалось загрузить пользователей. Попробуйте позже.';
+        this.loading = false;
+      }
+    });
   }
 }

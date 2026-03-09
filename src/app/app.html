@@ -1,3 +1,11 @@
-<my-app></my-app>
-<second-app></second-app>
-<my-form></my-form>
+<nav class="navbar navbar-expand navbar-light bg-light mb-3">
+  <a class="navbar-brand" href="#">Angular Client</a>
+  <div class="navbar-nav">
+    <a class="nav-item nav-link" routerLink="/users" routerLinkActive="active">Users</a>
+    <a class="nav-item nav-link" routerLink="/add_users" routerLinkActive="active">Add user</a>
+  </div>
+</nav>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
