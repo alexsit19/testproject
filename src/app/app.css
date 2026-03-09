@@ -1,0 +1,16 @@
+ .app-navbar {
+  padding-top: 8px;
+}
+
+.app-navbar-brand {
+  margin-top: 4px;
+}
+
+.app-navbar-links {
+  margin-left: 16px;
+}
+
+.app-navbar-link {
+  margin-right: 12px;
+}
+
