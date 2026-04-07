@@ -4,7 +4,8 @@ import { Secondcomponent } from './secondcomponent/secondcomponent';
 import { UserForm } from './user-form/user-form';
 
 const routes: Routes = [
-   { path: 'users', component: Secondcomponent },
+  { path: '', redirectTo: '/users', pathMatch: 'full' },
+  { path: 'users', component: Secondcomponent },
   { path: 'add_users', component: UserForm }
 ];
 

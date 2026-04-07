@@ -1,6 +1,15 @@
 <div class="card my-5">
   <div class="card-body">
-    <table class="table table-bordered table-striped">
+    <div *ngIf="loading" class="alert alert-info">
+      Загрузка пользователей...
+    </div>
+
+    <div *ngIf="error" class="alert alert-danger">
+      {{ error }}
+    </div>
+
+    <table *ngIf="!loading && !error && users?.length"
+           class="table table-bordered table-striped">
       <thead class="thead-dark">
         <tr>
           <th scope="col">#</th>
@@ -16,5 +25,9 @@
         </tr>
       </tbody>
     </table>
+
+    <div *ngIf="!loading && !error && !users?.length" class="alert alert-secondary">
+      Пользователи отсутствуют.
+    </div>
   </div>
 </div>
